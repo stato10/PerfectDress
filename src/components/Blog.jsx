@@ -62,7 +62,7 @@ const Blog = () => {
 
   return (
     <motion.div 
-      className="min-h-screen pt-32 pb-16 px-6"
+      className="min-h-screen pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 px-4 sm:px-6 lg:px-8"
       style={{
         background: 'linear-gradient(352deg, rgba(238, 202, 213, 0.8) 0%, rgba(246, 234, 203, 0.9) 50%, rgba(209, 233, 246, 0.8) 100%)'
       }}
@@ -73,55 +73,59 @@ const Blog = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-800 mb-4 sm:mb-6 lg:mb-8">
             Fashion Blog
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Stay updated with the latest fashion trends, styling tips, and dress guides
           </p>
         </motion.div>
 
         {/* Featured Post */}
         <motion.div 
-          className="mb-16"
+          className="mb-12 sm:mb-16 lg:mb-20"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="bg-white bg-opacity-95 rounded-3xl overflow-hidden shadow-xl border border-white border-opacity-30 backdrop-blur-sm">
+          <div className="bg-white bg-opacity-95 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-white border-opacity-30 backdrop-blur-sm">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
               <div className="relative overflow-hidden">
                 <img 
                   src={blogPosts[0].image} 
                   alt={blogPosts[0].title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-64 sm:h-80 lg:h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className="bg-perfect-pink text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
+                  <span className="bg-perfect-pink text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg">
                     {blogPosts[0].category}
                   </span>
                 </div>
               </div>
-              <div className="p-8 lg:p-12 flex flex-col justify-center">
-                <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+              <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
                   {blogPosts[0].title}
                 </h2>
-                <p className="text-gray-600 mb-6 text-lg">
+                <p className="text-gray-600 mb-6 text-base sm:text-lg">
                   {blogPosts[0].excerpt}
                 </p>
-                <div className="flex items-center text-gray-500 mb-6">
-                  <FaUser className="mr-2" />
-                  <span className="mr-6">{blogPosts[0].author}</span>
-                  <FaCalendar className="mr-2" />
-                  <span>{blogPosts[0].date}</span>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center text-gray-500 mb-6 text-sm sm:text-base">
+                  <div className="flex items-center mb-2 sm:mb-0 sm:mr-6">
+                    <FaUser className="mr-2" />
+                    <span>{blogPosts[0].author}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaCalendar className="mr-2" />
+                    <span>{blogPosts[0].date}</span>
+                  </div>
                 </div>
                 <motion.button
-                  className="inline-flex items-center bg-perfect-pink text-white px-6 py-3 rounded-full font-medium shadow-lg"
+                  className="inline-flex items-center bg-perfect-pink text-white px-4 sm:px-6 py-3 rounded-full text-sm sm:text-base font-medium shadow-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -135,7 +139,7 @@ const Blog = () => {
 
         {/* Blog Grid */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -143,7 +147,7 @@ const Blog = () => {
           {blogPosts.slice(1).map((post, index) => (
             <motion.article
               key={post.id}
-              className="bg-white bg-opacity-95 rounded-2xl overflow-hidden shadow-xl border border-white border-opacity-30 backdrop-blur-sm"
+              className="bg-white bg-opacity-95 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-white border-opacity-30 backdrop-blur-sm"
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
@@ -156,7 +160,7 @@ const Blog = () => {
                 <img 
                   src={post.image} 
                   alt={post.title}
-                  className="w-full h-48 object-cover transition-transform duration-500 hover:scale-110"
+                  className="w-full h-48 sm:h-56 object-cover transition-transform duration-500 hover:scale-110"
                 />
                 <div className="absolute top-4 left-4">
                   <span className="bg-perfect-pink text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
@@ -164,19 +168,23 @@ const Blog = () => {
                   </span>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3 line-clamp-2">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 line-clamp-2">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">
+                <p className="text-gray-600 mb-4 line-clamp-3 text-sm sm:text-base">
                   {post.excerpt}
                 </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center text-gray-500 text-sm">
-                    <FaUser className="mr-1" />
-                    <span className="mr-4">{post.author}</span>
-                    <FaCalendar className="mr-1" />
-                    <span>{post.date}</span>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center text-gray-500 text-xs sm:text-sm mb-2 sm:mb-0">
+                    <div className="flex items-center mb-1 sm:mb-0 sm:mr-4">
+                      <FaUser className="mr-1" />
+                      <span>{post.author}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <FaCalendar className="mr-1" />
+                      <span>{post.date}</span>
+                    </div>
                   </div>
                   <motion.button
                     className="text-perfect-pink hover:text-gray-800 transition-colors duration-300"
@@ -193,26 +201,26 @@ const Blog = () => {
 
         {/* Newsletter Signup */}
         <motion.div 
-          className="mt-20 text-center"
+          className="mt-12 sm:mt-16 lg:mt-20 text-center"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <div className="bg-white bg-opacity-95 rounded-3xl p-8 shadow-xl border border-white border-opacity-30 backdrop-blur-sm">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">
+          <div className="bg-white bg-opacity-95 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl border border-white border-opacity-30 backdrop-blur-sm">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
               Stay Updated
             </h3>
-            <p className="text-gray-600 mb-6 max-w-md mx-auto">
+            <p className="text-gray-600 mb-6 max-w-md mx-auto text-sm sm:text-base">
               Subscribe to our newsletter for the latest fashion trends and exclusive offers
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input 
                 type="email" 
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-full bg-white bg-opacity-90 text-gray-800 placeholder-gray-500 border border-gray-200 focus:outline-none focus:border-perfect-pink focus:ring-2 focus:ring-perfect-pink focus:ring-opacity-50"
+                className="flex-1 px-4 sm:px-6 py-3 rounded-full bg-white bg-opacity-90 text-gray-800 placeholder-gray-500 border border-gray-200 focus:outline-none focus:border-perfect-pink focus:ring-2 focus:ring-perfect-pink focus:ring-opacity-50 text-sm sm:text-base"
               />
               <motion.button
-                className="bg-perfect-pink text-white px-8 py-3 rounded-full font-medium shadow-lg"
+                className="bg-perfect-pink text-white px-6 sm:px-8 py-3 rounded-full text-sm sm:text-base font-medium shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

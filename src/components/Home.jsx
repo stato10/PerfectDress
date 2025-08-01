@@ -40,7 +40,7 @@ const Home = () => {
 
   return (
     <motion.section 
-      className="relative w-full min-h-screen flex items-center justify-between px-6 py-24 bg-perfect-dark transition-all duration-500 z-10"
+      className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 bg-perfect-dark transition-all duration-500 z-10"
       style={{
         background: 'linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 50%, #1a1a1a 100%)'
       }}
@@ -94,7 +94,7 @@ const Home = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <div className="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <motion.div 
           ref={textRef}
           className="text-white"
@@ -103,7 +103,7 @@ const Home = () => {
           transition={{ duration: 1.2, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
         >
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold uppercase leading-tight mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase leading-tight mb-4 sm:mb-6 lg:mb-8"
             initial={{ scale: 0.8, opacity: 0, y: 50 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             transition={{ 
@@ -120,7 +120,7 @@ const Home = () => {
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl font-light mb-6 sm:mb-8 lg:mb-10 max-w-2xl mx-auto px-4"
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.8, ease: [0.4, 0, 0.2, 1] }}
@@ -129,7 +129,7 @@ const Home = () => {
           </motion.p>
           
           <motion.button 
-            className="btn-hover inline-block bg-perfect-pink text-perfect-dark px-8 py-4 text-lg font-medium uppercase tracking-wider"
+            className="btn-hover inline-block bg-perfect-pink text-perfect-dark px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-base sm:text-lg lg:text-xl font-medium uppercase tracking-wider rounded-lg sm:rounded-xl"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 15px 40px rgba(255, 0, 255, 0.4)",
@@ -151,7 +151,7 @@ const Home = () => {
 
       {/* Enhanced Social Media Icons */}
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex space-x-8"
+        className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex space-x-4 sm:space-x-6 lg:space-x-8"
         initial={{ y: 60, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1, delay: 1.4, ease: [0.4, 0, 0.2, 1] }}
@@ -176,14 +176,14 @@ const Home = () => {
               ease: [0.4, 0, 0.2, 1]
             }}
           >
-            <social.icon className="text-3xl" />
+            <social.icon className="text-2xl sm:text-3xl lg:text-4xl" />
           </motion.a>
         ))}
       </motion.div>
 
-      {/* Enhanced Floating Elements */}
+      {/* Enhanced Floating Elements - Responsive positioning */}
       <motion.div 
-        className="floating-element absolute top-20 right-20 w-4 h-4 bg-perfect-pink rounded-full opacity-60"
+        className="floating-element absolute top-16 sm:top-20 lg:top-24 right-4 sm:right-8 lg:right-20 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 bg-perfect-pink rounded-full opacity-60"
         animate={{ 
           y: [0, -25, 0],
           opacity: [0.6, 0.2, 0.6],
@@ -196,7 +196,7 @@ const Home = () => {
         }}
       />
       <motion.div 
-        className="floating-element absolute bottom-40 left-20 w-6 h-6 bg-perfect-pink rounded-full opacity-40"
+        className="floating-element absolute bottom-32 sm:bottom-40 lg:bottom-48 left-4 sm:left-8 lg:left-20 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-perfect-pink rounded-full opacity-40"
         animate={{ 
           y: [0, 20, 0],
           opacity: [0.4, 0.1, 0.4],
@@ -209,7 +209,7 @@ const Home = () => {
         }}
       />
       <motion.div 
-        className="floating-element absolute top-1/2 left-1/4 w-3 h-3 bg-perfect-blue rounded-full opacity-30"
+        className="floating-element absolute top-1/2 left-1/4 w-2 h-2 sm:w-3 sm:h-3 lg:w-4 lg:h-4 bg-perfect-blue rounded-full opacity-30"
         animate={{ 
           y: [0, -15, 0],
           x: [0, 10, 0],
