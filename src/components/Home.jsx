@@ -41,6 +41,9 @@ const Home = () => {
   return (
     <motion.section 
       className="relative w-full min-h-screen flex items-center justify-between px-6 py-24 bg-perfect-dark transition-all duration-500 z-10"
+      style={{
+        background: 'linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 50%, #1a1a1a 100%)'
+      }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
@@ -56,9 +59,16 @@ const Home = () => {
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
         transition={{ duration: 2, ease: "easeOut" }}
+        onError={(e) => console.error('Video loading error:', e)}
+        onLoadStart={() => console.log('Video loading started')}
+        onCanPlay={() => console.log('Video can play')}
       >
         <source 
           src="https://res.cloudinary.com/dpz2lh8hu/video/upload/v1690762130/dressesweb/dresses%20web/pexels-ron-lach-10214232_2160p_uxlrhx.mp4" 
+          type="video/mp4" 
+        />
+        <source 
+          src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" 
           type="video/mp4" 
         />
         Your browser does not support the video tag.
