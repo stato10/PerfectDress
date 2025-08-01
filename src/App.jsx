@@ -49,6 +49,7 @@ const AnimatedRoutes = () => {
       >
         <Routes location={location}>
           <Route path="/" element={<Home />} />
+          <Route path="/PerfectDress/" element={<Home />} />
           <Route path="/collection" element={<Collection />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
