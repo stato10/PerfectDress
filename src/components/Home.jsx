@@ -105,7 +105,6 @@ const Home = () => {
               scale: 1.02,
               textShadow: "0 0 30px rgba(255, 0, 255, 0.5)"
             }}
-            transition={{ duration: 0.3 }}
           >
             Perfect Dress
           </motion.h1>
