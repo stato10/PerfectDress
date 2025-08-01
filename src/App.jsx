@@ -7,7 +7,7 @@ import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Navigation from './components/Navigation'
 
-// Page transition variants
+// Ultra-smooth page transition variants
 const pageVariants = {
   initial: {
     opacity: 0,
@@ -28,7 +28,7 @@ const pageVariants = {
 
 const pageTransition = {
   type: "tween",
-  ease: [0.4, 0, 0.2, 1],
+  ease: [0.4, 0, 0.2, 1], // Smoother cubic-bezier
   duration: 0.6
 }
 
@@ -37,7 +37,7 @@ const AnimatedRoutes = () => {
   const location = useLocation()
   
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={location.pathname}
         initial="initial"
@@ -66,7 +66,10 @@ function App() {
         className="App bg-perfect-dark min-h-screen"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ 
+          duration: 0.4, 
+          ease: [0.4, 0, 0.2, 1]
+        }}
       >
         <Navigation />
         <AnimatedRoutes />
