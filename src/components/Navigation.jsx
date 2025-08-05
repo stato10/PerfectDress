@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaBars, FaTimes } from 'react-icons/fa'
+import { handleLogoError } from '../utils/imageUtils'
+import { useAppRouter } from '../hooks/useAppRouter'
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const location = useLocation()
+  const { location, isCurrentPath } = useAppRouter()
 
   const menuItems = [
     { path: '/', label: 'Home' },
@@ -52,6 +54,7 @@ const Navigation = () => {
             src="https://res.cloudinary.com/dpz2lh8hu/image/upload/v1690811636/dressesweb/perfect-dresses-low-resolution-logo-white-on-transparent-background_ufz0mm.png" 
             alt="Perfect Dress" 
             className="h-12 sm:h-16 md:h-20 lg:h-[90px] w-auto drop-shadow-lg"
+            onError={handleLogoError}
           />
         </motion.div>
 
@@ -162,7 +165,7 @@ const Navigation = () => {
                     <Link
                       to={item.path}
                       className={`menu-item text-xl sm:text-2xl font-medium block py-2 transition-all duration-300 ${
-                        location.pathname === item.path 
+                        isCurrentPath(item.path)
                           ? 'text-perfect-pink font-bold' 
                           : 'text-gray-800 hover:text-perfect-pink'
                       }`}
@@ -177,6 +180,7 @@ const Navigation = () => {
                         stiffness: 300,
                         damping: 15
                       }}
+                      style={{ textDecoration: 'none' }}
                     >
                       {item.label}
                     </Link>

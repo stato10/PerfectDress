@@ -16,9 +16,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Ultra-smooth transitions */
+/* Ultra-smooth transitions - Fixed to prevent flickering */
 * {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: none; /* Remove global transitions to prevent conflicts */
 }
 
 /* Custom scrollbar with smooth scrolling */
@@ -233,10 +233,6 @@ html {
 
 /* Responsive smooth transitions */
 @media (max-width: 768px) {
-  * {
-    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
   .animate-float {
     animation: float 2s ease-in-out infinite;
   }

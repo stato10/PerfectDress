@@ -21,6 +21,17 @@ const Contact = () => {
     e.preventDefault()
     // Handle form submission here
     console.log('Form submitted:', formData)
+    
+    // Reset form after submission
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    })
+    
+    // Show success message (you can implement a proper notification system)
+    alert('Thank you for your message! We will get back to you soon.')
   }
 
   const contactInfo = [

@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FaCalendar, FaUser, FaArrowRight } from 'react-icons/fa'
+import { handleImageError, getFallbackImage } from '../utils/imageUtils'
 
 const Blog = () => {
   const blogPosts = [
@@ -100,6 +101,7 @@ const Blog = () => {
                   src={blogPosts[0].image} 
                   alt={blogPosts[0].title}
                   className="w-full h-64 sm:h-80 lg:h-full object-cover transition-transform duration-500 hover:scale-105"
+                  onError={(e) => handleImageError(e, getFallbackImage())}
                 />
                 <div className="absolute top-4 left-4">
                   <span className="bg-perfect-pink text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg">
@@ -161,6 +163,7 @@ const Blog = () => {
                   src={post.image} 
                   alt={post.title}
                   className="w-full h-48 sm:h-56 object-cover transition-transform duration-500 hover:scale-110"
+                  onError={(e) => handleImageError(e, getFallbackImage())}
                 />
                 <div className="absolute top-4 left-4">
                   <span className="bg-perfect-pink text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">

@@ -6,30 +6,29 @@ import Collection from './components/Collection'
 import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Navigation from './components/Navigation'
+import ErrorBoundary from './components/ErrorBoundary'
+import { routerConfig, suppressRouterWarnings } from './utils/routerConfig'
 
-// Ultra-smooth page transition variants
+// Simplified page transition variants to prevent flickering
 const pageVariants = {
   initial: {
     opacity: 0,
-    y: 20,
-    scale: 0.98
+    y: 10
   },
   in: {
     opacity: 1,
-    y: 0,
-    scale: 1
+    y: 0
   },
   out: {
     opacity: 0,
-    y: -20,
-    scale: 0.98
+    y: -10
   }
 }
 
 const pageTransition = {
   type: "tween",
-  ease: [0.4, 0, 0.2, 1], // Smoother cubic-bezier
-  duration: 0.6
+  ease: [0.4, 0, 0.2, 1],
+  duration: 0.4
 }
 
 // Animated Routes component
@@ -49,10 +48,10 @@ const AnimatedRoutes = () => {
       >
         <Routes location={location}>
           <Route path="/" element={<Home />} />
-          <Route path="/PerfectDress/" element={<Home />} />
           <Route path="/collection" element={<Collection />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </motion.div>
     </AnimatePresence>
@@ -60,21 +59,28 @@ const AnimatedRoutes = () => {
 }
 
 function App() {
+  // Suppress React Router warnings in development
+  React.useEffect(() => {
+    suppressRouterWarnings()
+  }, [])
+
   return (
-    <Router>
-      <motion.div 
-        className="App bg-perfect-dark min-h-screen"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ 
-          duration: 0.4, 
-          ease: [0.4, 0, 0.2, 1]
-        }}
-      >
-        <Navigation />
-        <AnimatedRoutes />
-      </motion.div>
-    </Router>
+    <ErrorBoundary>
+      <Router {...routerConfig}>
+        <motion.div 
+          className="App bg-perfect-dark min-h-screen"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ 
+            duration: 0.3, 
+            ease: [0.4, 0, 0.2, 1]
+          }}
+        >
+          <Navigation />
+          <AnimatedRoutes />
+        </motion.div>
+      </Router>
+    </ErrorBoundary>
   )
 }
 

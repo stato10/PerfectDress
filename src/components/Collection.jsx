@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaHeart, FaShoppingCart, FaEye } from 'react-icons/fa'
+import { handleImageError, getFallbackImage } from '../utils/imageUtils'
 
 const Collection = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -47,14 +48,14 @@ const Collection = () => {
       name: 'Classic Black Dress',
       category: 'evening',
       price: '$199',
-      image: 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+      image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80'
     },
     {
       id: 6,
       name: 'Bohemian Maxi Dress',
       category: 'casual',
       price: '$129',
-      image: 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
     }
   ]
 
@@ -139,6 +140,7 @@ const Collection = () => {
                   src={dress.image} 
                   alt={dress.name}
                   className="w-full h-48 sm:h-64 lg:h-80 object-cover transition-transform duration-500 hover:scale-110"
+                  onError={(e) => handleImageError(e, getFallbackImage())}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex justify-between">

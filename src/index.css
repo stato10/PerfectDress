@@ -31,8 +31,11 @@ body {
   background: #e600e6;
 }
 
-/* Smooth transitions */
-* {
+/* Smooth transitions - more specific to avoid conflicts */
+.page-transition,
+.btn-hover,
+.social-item,
+.menu-item {
   transition: all 0.3s ease;
 }
 
