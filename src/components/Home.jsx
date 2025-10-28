@@ -82,7 +82,7 @@ const Home = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
         <motion.div 
           className="text-white"
           initial={{ y: 20, opacity: 0 }}
@@ -115,7 +115,7 @@ const Home = () => {
           </motion.p>
           
           <motion.button 
-            className="btn-hover inline-block bg-perfect-pink text-perfect-dark px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-base sm:text-lg lg:text-xl font-medium uppercase tracking-wider rounded-lg sm:rounded-xl cursor-pointer"
+            className="btn-hover block mx-auto bg-perfect-pink text-perfect-dark px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-base sm:text-lg lg:text-xl font-medium uppercase tracking-wider rounded-lg sm:rounded-xl cursor-pointer"
             whileHover={{ 
               scale: 1.02,
               y: -1
@@ -137,7 +137,7 @@ const Home = () => {
 
       {/* Enhanced Social Media Icons */}
       <motion.div 
-        className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex space-x-4 sm:space-x-6 lg:space-x-8"
+        className="absolute bottom-4 sm:bottom-6 lg:bottom-8 left-0 right-0 z-10 flex justify-center items-center space-x-4 sm:space-x-6 lg:space-x-8"
         initial={{ y: 15, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.3, delay: 0.5, ease: "easeOut" }}
