@@ -73,9 +73,6 @@ const Contact = () => {
       style={{
         background: 'linear-gradient(352deg, rgba(238, 202, 213, 0.8) 0%, rgba(246, 234, 203, 0.9) 50%, rgba(209, 233, 246, 0.8) 100%)'
       }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}

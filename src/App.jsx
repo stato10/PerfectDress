@@ -13,7 +13,7 @@ import { routerConfig, suppressRouterWarnings } from './utils/routerConfig'
 const pageVariants = {
   initial: {
     opacity: 0,
-    y: 5
+    y: 2
   },
   in: {
     opacity: 1,
@@ -21,14 +21,14 @@ const pageVariants = {
   },
   out: {
     opacity: 0,
-    y: -5
+    y: -2
   }
 }
 
 const pageTransition = {
   type: "tween",
-  ease: "easeOut",
-  duration: 0.25
+  ease: "easeInOut",
+  duration: 0.2
 }
 
 // Animated Routes component
