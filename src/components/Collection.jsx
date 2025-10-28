@@ -77,9 +77,9 @@ const Collection = () => {
         {/* Header */}
         <motion.div 
           className="text-center mb-12 sm:mb-16 lg:mb-20"
-          initial={{ y: 50, opacity: 0 }}
+          initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-800 mb-4 sm:mb-6 lg:mb-8">
             Our Collection
@@ -92,9 +92,9 @@ const Collection = () => {
         {/* Category Filter */}
         <motion.div 
           className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12 lg:mb-16"
-          initial={{ y: 30, opacity: 0 }}
+          initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
         >
           {categories.map((category, index) => (
             <motion.button
@@ -105,11 +105,11 @@ const Collection = () => {
                   ? 'bg-perfect-pink text-white shadow-lg'
                   : 'bg-white bg-opacity-90 text-gray-700 hover:bg-perfect-pink hover:text-white hover:shadow-lg'
               }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ y: 20, opacity: 0 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+              transition={{ duration: 0.3, delay: 0.2 + index * 0.05, ease: "easeOut" }}
             >
               {category.name}
             </motion.button>
@@ -121,18 +121,18 @@ const Collection = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
         >
           {filteredDresses.map((dress, index) => (
             <motion.div
               key={dress.id}
               className="bg-white bg-opacity-95 rounded-xl sm:rounded-2xl overflow-hidden shadow-xl border border-white border-opacity-30 backdrop-blur-sm"
-              initial={{ y: 50, opacity: 0 }}
+              initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+              transition={{ duration: 0.3, delay: 0.4 + index * 0.05, ease: "easeOut" }}
               whileHover={{ 
-                y: -10,
-                boxShadow: "0 25px 50px rgba(255, 0, 255, 0.2)"
+                y: -5,
+                boxShadow: "0 15px 30px rgba(255, 0, 255, 0.15)"
               }}
             >
               <div className="relative overflow-hidden">
@@ -146,22 +146,25 @@ const Collection = () => {
                   <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex justify-between">
                     <motion.button
                       className="bg-perfect-pink text-white p-2 sm:p-3 rounded-full shadow-lg"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     >
                       <FaHeart className="text-sm sm:text-base" />
                     </motion.button>
                     <motion.button
                       className="bg-perfect-pink text-white p-2 sm:p-3 rounded-full shadow-lg"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     >
                       <FaShoppingCart className="text-sm sm:text-base" />
                     </motion.button>
                     <motion.button
                       className="bg-perfect-pink text-white p-2 sm:p-3 rounded-full shadow-lg"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
                     >
                       <FaEye className="text-sm sm:text-base" />
                     </motion.button>
@@ -179,17 +182,18 @@ const Collection = () => {
         {/* Call to Action */}
         <motion.div 
           className="text-center mt-12 sm:mt-16 lg:mt-20"
-          initial={{ y: 30, opacity: 0 }}
+          initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.4, delay: 0.5, ease: "easeOut" }}
         >
           <motion.button
             className="bg-perfect-pink text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 text-base sm:text-lg font-medium uppercase tracking-wider rounded-full shadow-xl"
             whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 15px 40px rgba(255, 0, 255, 0.3)"
+              scale: 1.03,
+              boxShadow: "0 10px 25px rgba(255, 0, 255, 0.2)"
             }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
           >
             View All Dresses
           </motion.button>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaBars, FaTimes } from 'react-icons/fa'
@@ -16,38 +16,34 @@ const Navigation = () => {
     { path: '/contact', label: 'Contact' }
   ]
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen(prev => !prev)
+  }, [])
 
   return (
     <>
       {/* Header */}
       <motion.header 
         className="fixed top-0 left-0 w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 z-50 flex justify-between items-center"
-        initial={{ y: -30, opacity: 0 }}
+        initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ 
-          duration: 0.5, 
-          ease: [0.4, 0, 0.2, 1]
+          duration: 0.3, 
+          ease: "easeOut"
         }}
       >
         {/* Logo */}
         <motion.div 
           className="text-white cursor-pointer"
-          initial={{ opacity: 0, x: -15 }}
+          initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           whileHover={{ 
-            scale: 1.01,
-            rotate: [0, -0.5, 0.5, 0]
+            scale: 1.02
           }}
           transition={{ 
-            duration: 0.4, 
-            ease: [0.4, 0, 0.2, 1],
-            delay: 0.2,
-            type: "spring", 
-            stiffness: 300,
-            damping: 20
+            duration: 0.2, 
+            ease: "easeOut",
+            delay: 0.1
           }}
         >
           <img 
@@ -61,33 +57,29 @@ const Navigation = () => {
         {/* Menu Toggle */}
         <motion.div 
           className="relative w-[45px] h-[45px] sm:w-[50px] sm:h-[50px] lg:w-[60px] lg:h-[60px] cursor-pointer flex items-center justify-center rounded-full"
-          initial={{ opacity: 0, x: 15 }}
+          initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
           whileHover={{ 
-            scale: 1.03,
-            rotate: [0, 1, -1, 0]
+            scale: 1.05
           }}
-          whileTap={{ scale: 0.97 }}
+          whileTap={{ scale: 0.95 }}
           onClick={toggleMenu}
           transition={{ 
-            duration: 0.4, 
-            ease: [0.4, 0, 0.2, 1],
-            delay: 0.3,
-            type: "spring", 
-            stiffness: 300,
-            damping: 20
+            duration: 0.2, 
+            ease: "easeOut",
+            delay: 0.2
           }}
         >
           <AnimatePresence mode="wait">
             {isMenuOpen ? (
               <motion.div
                 key="close"
-                initial={{ rotate: -30, opacity: 0, scale: 0.9 }}
-                animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                exit={{ rotate: 30, opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ 
-                  duration: 0.2,
-                  ease: [0.4, 0, 0.2, 1]
+                  duration: 0.15,
+                  ease: "easeOut"
                 }}
               >
                 <FaTimes className="text-white text-lg sm:text-xl lg:text-2xl drop-shadow-lg" />
@@ -95,12 +87,12 @@ const Navigation = () => {
             ) : (
               <motion.div
                 key="menu"
-                initial={{ rotate: 30, opacity: 0, scale: 0.9 }}
-                animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                exit={{ rotate: -30, opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ 
-                  duration: 0.2,
-                  ease: [0.4, 0, 0.2, 1]
+                  duration: 0.15,
+                  ease: "easeOut"
                 }}
               >
                 <FaBars className="text-white text-lg sm:text-xl lg:text-2xl drop-shadow-lg" />
@@ -120,7 +112,7 @@ const Navigation = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
               onClick={() => setIsMenuOpen(false)}
             />
             
@@ -129,56 +121,53 @@ const Navigation = () => {
               className="fixed top-0 right-0 w-[280px] sm:w-[320px] lg:w-[350px] h-full z-40 flex items-center justify-center"
               style={{
                 background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
+                backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
                 border: '1px solid rgba(255, 255, 255, 0.3)',
-                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.3)'
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)'
               }}
-              initial={{ x: 350, opacity: 0 }}
+              initial={{ x: 300, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: 350, opacity: 0 }}
+              exit={{ x: 300, opacity: 0 }}
               transition={{ 
-                type: "spring", 
-                stiffness: 200, 
-                damping: 25,
-                duration: 0.4
+                duration: 0.25,
+                ease: "easeOut"
               }}
             >
               <motion.ul 
                 className="text-center w-full px-6 sm:px-8"
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                transition={{ delay: 0.05, duration: 0.2, ease: "easeOut" }}
               >
                 {menuItems.map((item, index) => (
                   <motion.li 
                     key={item.path}
-                    className="mb-8 sm:mb-10"
-                    initial={{ opacity: 0, x: 15 }}
+                    className="mb-6 sm:mb-8"
+                    initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ 
-                      delay: 0.2 + index * 0.08,
-                      duration: 0.3,
-                      ease: [0.4, 0, 0.2, 1]
+                      delay: 0.1 + index * 0.05,
+                      duration: 0.2,
+                      ease: "easeOut"
                     }}
                   >
                     <Link
                       to={item.path}
-                      className={`menu-item text-xl sm:text-2xl font-medium block py-2 transition-all duration-300 ${
+                      className={`menu-item text-xl sm:text-2xl font-medium block py-2 transition-all duration-200 ${
                         isCurrentPath(item.path)
                           ? 'text-perfect-pink font-bold' 
                           : 'text-gray-800 hover:text-perfect-pink'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                       whileHover={{ 
-                        scale: 1.01,
-                        x: 3
+                        scale: 1.02,
+                        x: 2
                       }}
-                      whileTap={{ scale: 0.99 }}
+                      whileTap={{ scale: 0.98 }}
                       transition={{ 
-                        type: "spring", 
-                        stiffness: 300,
-                        damping: 15
+                        duration: 0.15,
+                        ease: "easeOut"
                       }}
                       style={{ textDecoration: 'none' }}
                     >

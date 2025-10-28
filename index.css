@@ -231,6 +231,15 @@ html {
   animation: shimmer 1.5s infinite;
 }
 
+/* Performance optimizations for mobile devices */
+.motion-component,
+[data-framer-motion] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
 /* Responsive smooth transitions */
 @media (max-width: 768px) {
   .animate-float {
@@ -245,6 +254,17 @@ html {
   
   .btn-hover:hover {
     letter-spacing: 1px;
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .motion-component,
+  [data-framer-motion] {
+    will-change: auto;
+  }
+  
+  /* Optimize floating elements for mobile */
+  .floating-element {
+    animation-duration: 2s;
   }
 }
 

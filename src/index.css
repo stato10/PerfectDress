@@ -31,12 +31,21 @@ body {
   background: #e600e6;
 }
 
+/* Performance optimizations for mobile devices */
+.motion-component,
+[data-framer-motion] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
 /* Smooth transitions - more specific to avoid conflicts */
 .page-transition,
 .btn-hover,
 .social-item,
 .menu-item {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 /* Custom animations */

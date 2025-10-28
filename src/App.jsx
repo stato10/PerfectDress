@@ -9,11 +9,11 @@ import Navigation from './components/Navigation'
 import ErrorBoundary from './components/ErrorBoundary'
 import { routerConfig, suppressRouterWarnings } from './utils/routerConfig'
 
-// Simplified page transition variants to prevent flickering
+// Optimized page transition variants for better mobile performance
 const pageVariants = {
   initial: {
     opacity: 0,
-    y: 10
+    y: 5
   },
   in: {
     opacity: 1,
@@ -21,14 +21,14 @@ const pageVariants = {
   },
   out: {
     opacity: 0,
-    y: -10
+    y: -5
   }
 }
 
 const pageTransition = {
   type: "tween",
-  ease: [0.4, 0, 0.2, 1],
-  duration: 0.4
+  ease: "easeOut",
+  duration: 0.25
 }
 
 // Animated Routes component
@@ -72,8 +72,8 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ 
-            duration: 0.3, 
-            ease: [0.4, 0, 0.2, 1]
+            duration: 0.2, 
+            ease: "easeOut"
           }}
         >
           <Navigation />
