@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff00ff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e600e6;
+}
+
+/* Performance optimizations for mobile devices */
+.motion-component,
+[data-framer-motion] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth transitions - more specific to avoid conflicts */
+.page-transition,
+.btn-hover,
+.social-item,
+.menu-item {
+  transition: all 0.2s ease;
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Video overlay effect */
+.video-overlay {
+  mix-blend-mode: overlay;
+}
+
+/* Social icons hover effect */
+.social-icon {
+  filter: invert(1);
+  transform: scale(0.5);
+  transition: 0.5s;
+}
+
+.social-icon:hover {
+  transform: scale(0.5) translateY(-15px);
+}
+
+/* Button hover effect */
+.btn-hover {
+  transition: 0.2s;
+}
+
+.btn-hover:hover {
+  letter-spacing: 6px;
+} 
