@@ -240,6 +240,53 @@ html {
   perspective: 1000px;
 }
 
+/* Aggressive mobile performance optimizations */
+@media (max-width: 768px) {
+  /* Disable all animations on mobile for maximum performance */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  
+  /* Disable transform animations on mobile */
+  [data-framer-motion] {
+    will-change: auto !important;
+    transform: none !important;
+  }
+  
+  /* Disable hover effects completely on mobile */
+  *:hover {
+    transform: none !important;
+    scale: 1 !important;
+  }
+  
+  /* Disable floating elements and complex animations */
+  .floating-element {
+    display: none !important;
+  }
+  
+  /* Optimize scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+  }
+  
+  /* Force hardware acceleration off on mobile */
+  * {
+    transform: none !important;
+    backface-visibility: visible !important;
+    perspective: none !important;
+  }
+  
+  /* Disable all motion components on mobile */
+  [data-framer-motion] {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 /* Responsive smooth transitions */
 @media (max-width: 768px) {
   .animate-float {
