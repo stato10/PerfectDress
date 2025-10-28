@@ -256,7 +256,7 @@ html {
     letter-spacing: 1px;
   }
   
-  /* Reduce animation complexity on mobile */
+  /* Disable complex animations on mobile for better performance */
   .motion-component,
   [data-framer-motion] {
     will-change: auto;
@@ -265,6 +265,39 @@ html {
   /* Optimize floating elements for mobile */
   .floating-element {
     animation-duration: 2s;
+  }
+  
+  /* Disable hover effects on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .btn-hover:hover {
+      letter-spacing: 0px;
+      transform: none;
+    }
+    
+    .social-icon:hover {
+      transform: none;
+    }
+    
+    .menu-item:hover::after {
+      width: 0%;
+    }
+    
+    .menu-item:hover {
+      transform: none;
+    }
+  }
+  
+  /* Reduce motion for better performance */
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  /* Disable floating elements on very small screens */
+  @media (max-width: 480px) {
+    .floating-element {
+      display: none;
+    }
   }
 }
 

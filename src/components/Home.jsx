@@ -85,15 +85,15 @@ const Home = () => {
         >
           <motion.h1 
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold uppercase leading-tight mb-4 sm:mb-6 lg:mb-8"
-            initial={{ scale: 0.98, opacity: 0, y: 15 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ 
-              duration: 0.5, 
-              delay: 0.2, 
+              duration: 0.3, 
+              delay: 0.1, 
               ease: "easeOut"
             }}
             whileHover={{ 
-              scale: 1.01
+              scale: 1.005
             }}
           >
             Perfect Dress
@@ -101,9 +101,9 @@ const Home = () => {
           
           <motion.p 
             className="text-lg sm:text-xl md:text-2xl font-light mb-6 sm:mb-8 lg:mb-10 max-w-2xl mx-auto px-4"
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3, delay: 0.3, ease: "easeOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2, delay: 0.2, ease: "easeOut" }}
           >
             Perfect Dress Is Perfect First Impression
           </motion.p>
@@ -111,15 +111,14 @@ const Home = () => {
           <motion.button 
             className="btn-hover block mx-auto bg-perfect-pink text-perfect-dark px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 text-base sm:text-lg lg:text-xl font-medium uppercase tracking-wider rounded-lg sm:rounded-xl cursor-pointer"
             whileHover={{ 
-              scale: 1.02,
-              y: -1
+              scale: 1.01
             }}
-            whileTap={{ scale: 0.98 }}
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
+            whileTap={{ scale: 0.99 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ 
-              duration: 0.3, 
-              delay: 0.4, 
+              duration: 0.2, 
+              delay: 0.3, 
               ease: "easeOut"
             }}
             onClick={handlePickDress}
@@ -159,9 +158,9 @@ const Home = () => {
         ))}
       </motion.div>
 
-      {/* Optimized Floating Elements - Reduced performance impact */}
+      {/* Optimized Floating Elements - Hidden on mobile for better performance */}
       <motion.div 
-        className="floating-element absolute top-16 sm:top-20 lg:top-24 right-4 sm:right-8 lg:right-20 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 bg-perfect-pink rounded-full opacity-60"
+        className="floating-element absolute top-16 sm:top-20 lg:top-24 right-4 sm:right-8 lg:right-20 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 bg-perfect-pink rounded-full opacity-60 hidden sm:block"
         animate={{ 
           y: [0, -6, 0],
           opacity: [0.6, 0.4, 0.6]
@@ -173,7 +172,7 @@ const Home = () => {
         }}
       />
       <motion.div 
-        className="floating-element absolute bottom-32 sm:bottom-40 lg:bottom-48 left-4 sm:left-8 lg:left-20 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-perfect-pink rounded-full opacity-40"
+        className="floating-element absolute bottom-32 sm:bottom-40 lg:bottom-48 left-4 sm:left-8 lg:left-20 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-perfect-pink rounded-full opacity-40 hidden sm:block"
         animate={{ 
           y: [0, 4, 0],
           opacity: [0.4, 0.3, 0.4]
@@ -185,7 +184,7 @@ const Home = () => {
         }}
       />
       <motion.div 
-        className="floating-element absolute top-1/2 left-1/4 w-2 h-2 sm:w-3 sm:h-3 lg:w-4 lg:h-4 bg-perfect-blue rounded-full opacity-30"
+        className="floating-element absolute top-1/2 left-1/4 w-2 h-2 sm:w-3 sm:h-3 lg:w-4 lg:h-4 bg-perfect-blue rounded-full opacity-30 hidden sm:block"
         animate={{ 
           y: [0, -3, 0],
           opacity: [0.3, 0.2, 0.3]

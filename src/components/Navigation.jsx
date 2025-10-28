@@ -35,15 +35,15 @@ const Navigation = () => {
         {/* Logo */}
         <motion.div 
           className="text-white cursor-pointer"
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           whileHover={{ 
-            scale: 1.02
+            scale: 1.01
           }}
           transition={{ 
-            duration: 0.2, 
+            duration: 0.15, 
             ease: "easeOut",
-            delay: 0.1
+            delay: 0.05
           }}
         >
           <img 
@@ -57,17 +57,17 @@ const Navigation = () => {
         {/* Menu Toggle */}
         <motion.div 
           className="relative w-[45px] h-[45px] sm:w-[50px] sm:h-[50px] lg:w-[60px] lg:h-[60px] cursor-pointer flex items-center justify-center rounded-full"
-          initial={{ opacity: 0, x: 10 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           whileHover={{ 
-            scale: 1.05
+            scale: 1.03
           }}
-          whileTap={{ scale: 0.95 }}
+          whileTap={{ scale: 0.97 }}
           onClick={toggleMenu}
           transition={{ 
-            duration: 0.2, 
+            duration: 0.15, 
             ease: "easeOut",
-            delay: 0.2
+            delay: 0.1
           }}
         >
           <AnimatePresence mode="wait">

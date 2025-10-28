@@ -12,23 +12,20 @@ import { routerConfig, suppressRouterWarnings } from './utils/routerConfig'
 // Optimized page transition variants for better mobile performance
 const pageVariants = {
   initial: {
-    opacity: 0,
-    y: 2
+    opacity: 0
   },
   in: {
-    opacity: 1,
-    y: 0
+    opacity: 1
   },
   out: {
-    opacity: 0,
-    y: -2
+    opacity: 0
   }
 }
 
 const pageTransition = {
   type: "tween",
-  ease: "easeInOut",
-  duration: 0.2
+  ease: "easeOut",
+  duration: 0.15
 }
 
 // Animated Routes component
