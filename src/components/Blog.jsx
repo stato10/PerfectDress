@@ -188,7 +188,7 @@ const Blog = () => {
                   </div>
                   <motion.button
                     className="text-perfect-pink hover:text-gray-800 transition-colors duration-300"
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.9 }}
                   >
                     <FaArrowRight />

@@ -211,7 +211,7 @@ const Contact = () => {
                     key={social.label}
                     href={social.url}
                     className="bg-perfect-pink text-white p-2 sm:p-3 rounded-full hover:scale-110 transition-transform shadow-lg"
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.9 }}
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}

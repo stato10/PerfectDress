@@ -32,9 +32,6 @@ const Home = () => {
         autoPlay 
         playsInline
         preload="auto"
-        initial={{ scale: 1.01 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
         onError={handleVideoError}
       >
         <source 
@@ -162,24 +159,12 @@ const Home = () => {
         ))}
       </motion.div>
 
-      {/* Simplified Floating Elements - Better performance */}
+      {/* Optimized Floating Elements - Reduced performance impact */}
       <motion.div 
         className="floating-element absolute top-16 sm:top-20 lg:top-24 right-4 sm:right-8 lg:right-20 w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 bg-perfect-pink rounded-full opacity-60"
         animate={{ 
-          y: [0, -8, 0],
-          opacity: [0.6, 0.3, 0.6]
-        }}
-        transition={{ 
-          duration: 2.5,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div 
-        className="floating-element absolute bottom-32 sm:bottom-40 lg:bottom-48 left-4 sm:left-8 lg:left-20 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-perfect-pink rounded-full opacity-40"
-        animate={{ 
-          y: [0, 6, 0],
-          opacity: [0.4, 0.2, 0.4]
+          y: [0, -6, 0],
+          opacity: [0.6, 0.4, 0.6]
         }}
         transition={{ 
           duration: 3,
@@ -188,13 +173,25 @@ const Home = () => {
         }}
       />
       <motion.div 
-        className="floating-element absolute top-1/2 left-1/4 w-2 h-2 sm:w-3 sm:h-3 lg:w-4 lg:h-4 bg-perfect-blue rounded-full opacity-30"
+        className="floating-element absolute bottom-32 sm:bottom-40 lg:bottom-48 left-4 sm:left-8 lg:left-20 w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-perfect-pink rounded-full opacity-40"
         animate={{ 
-          y: [0, -4, 0],
-          opacity: [0.3, 0.1, 0.3]
+          y: [0, 4, 0],
+          opacity: [0.4, 0.3, 0.4]
         }}
         transition={{ 
-          duration: 3.5,
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      <motion.div 
+        className="floating-element absolute top-1/2 left-1/4 w-2 h-2 sm:w-3 sm:h-3 lg:w-4 lg:h-4 bg-perfect-blue rounded-full opacity-30"
+        animate={{ 
+          y: [0, -3, 0],
+          opacity: [0.3, 0.2, 0.3]
+        }}
+        transition={{ 
+          duration: 5,
           repeat: Infinity,
           ease: "easeInOut"
         }}
